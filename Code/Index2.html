@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <!--Loading Assets-->
+        <a-assets>
+            <img id="texture" src="Texture.jpeg">
+            <img id="field" src="Paddy Field_2.webp">
+            <img id="green field" src="Green field.webp">
+            <img id="speaker" src="SPeaker.png">
+            <img id="floor" src="Floor.jpeg">
+
+            <video id="celebration" autoplay loop="true" src="Crackers.mp4"></video>
+
+            <audio id="crowd cheer" src="Audience_applause.mp3"></audio>
+            <audio id="gunshot" src="GunShot.mp3"></audio>
+        </a-assets>
+
+        <!-- Box -->
+        <a-box src="#field" position="-1 0.5 -3" rotation="0 45 0" scale="1 1 1">
+            <!--Changing scale-->
+            <a-animation attribute="scale" begin="mouseenter" to="2 2 2"></a-animation>
+            <a-animation attribute="scale" begin="mouseleave" to="1 1 1"></a-animation>
+            <!--Changing rotation-->
+            <a-animation attribute="rotation" begin="mouseenter" to="0 90 0"></a-animation>
+            <a-animation attribute="rotation" begin="mouseleave" to="0 45 0"></a-animation>
+            <!--Changing position-->
+            <a-animation attribute="position" begin="mouseenter" to="-1 0.5 -1"></a-animation>
+            <a-animation attribute="position" begin="mouseleave" to="-1 0.5 -3"></a-animation>
+        </a-box>
+
+        <!-- Sphere -->
+        <a-sphere src="#texture" position="0 1.25 -5" radius="1"></a-sphere>
+
+        <!-- Cone -->
+        <a-cone position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D">
+        </a-cone>
+
+        <!-- Floor Plane -->
+        <a-plane src="#floor" position="0 0 -4" rotation="-90 0 0" width="10" height="10"></a-plane>
+
+        <!-- Wall Plane -->
+        <a-plane position="0 0 -4" rotation="0 90 0" width="200" height="200" color="#231709"></a-plane>
+
+        <!-- Speaker planes -->
+        <a-plane sound="src:#crowd cheer; on:click" id="Speaker Plane" src="#speaker" position="3 -0.25 1"
+            rotation="0 0 0" width="0.5" height="0.5"></a-plane>
+
+        <a-plane sound="src:#crowd cheer; on:click" id="Speaker Plane2" src="#speaker" position="-3 -0.25 1"
+            rotation="0 0 0" width="0.5" height="0.5"></a-plane>
+
+        <!-- Video Plane -->
+
+        <a-video src="#celebration" width="16" height="9" position="0 3 -17.5"></a-video>
+
+        <a-sky color="#26252D"></a-sky>
+
+        <a-camera position="0 1 5">
+            <a-cursor scale="0.5 0.5 0.5" color="white" />
+        </a-camera>
+
+    </a-scene>
+</body>
+
+</html>
